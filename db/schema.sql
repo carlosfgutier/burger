@@ -1,0 +1,7 @@
+-- create burgers_db database
+-- use burger_db
+--create burgers table with
+	-- id integer primary key autoincremen 
+	--burger_name text
+	--eaten boolean
+	--date timestamp
