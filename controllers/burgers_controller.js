@@ -6,7 +6,9 @@ var router = express.Router();
 
 //create routes and set up logic where required
 //all routes lead to /index
-
+router.get("/",function(req,res){
+	res.redirect("/index")
+})
 //get/selec route
 router.get("/index", function(req, res) { //<<<<<< break down
 	burger.selectAll(function(data) {
@@ -18,15 +20,15 @@ router.get("/index", function(req, res) { //<<<<<< break down
 	});
 });
 
-//post/insert route
-router.post("/index", function(req, res) {
-	burger.insertOne([""]) //<<<<<<<<<<<< ????
-});
+// //post/insert route
+// router.post("/index", function(req, res) {
+// 	burger.insertOne([""]) //<<<<<<<<<<<< ????
+// });
 
-//update/put route
-router.put("/index", function(req, res) {
-	burger.updateOne(//<<<<<< ???)
-});
+// //update/put route
+// router.put("/index", function(req, res) {
+// 	burger.updateOne(//<<<<<< ???)
+// });
 
 
 //export router
