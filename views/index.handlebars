@@ -10,8 +10,10 @@
 	<section id="tracker">
 
 		<div id="pending">
-			{{#each burgers}}
+			{{#each burgers}} 
 				{{#unless this.eaten}}
+					{{this.burger_name}}
+						<button id="eat">Eat</button> <br> <br>
 				{{/unless}}
 			{{/each}}
 		</div>
@@ -22,8 +24,9 @@
 		
 		<div id="eaten">
 			{{#each burgers}}
-				{{#unless this.eaten}}
-				{{/unless}}
+				{{#if this.eaten}}
+					{{this.burger_name}} <br> <br>
+				{{/if}}
 			{{/each}}
 		</div>
 		
