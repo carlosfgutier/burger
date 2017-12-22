@@ -9,8 +9,8 @@ var burger = {
 		});
 	},
 
-	insertOne: function(burgerName, timestamp, cb) {
-		orm.insertOne(bugerName, timestamp, function(res) {
+	insertOne: function(burgerName, cb) {
+		orm.insertOne(bugerName, function(res) {
 			cb(res);
 		});
 	},
