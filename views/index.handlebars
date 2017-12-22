@@ -1,2 +1,40 @@
 {{!-- Set file to have the template that Handlebars can render onto --}}
 {{!-- create button that will submit user input into database --}}
+<div id="container">
+			
+	<header>
+		<h1>Burger Tracker</h1>
+		<p>To keep track of your burger eating</p>
+	</header>
+
+	<section id="tracker">
+
+		<div id="pending">
+			{{#each burgers}}
+				{{#unless eaten}}
+					{{>}}  {{!-- <<<<<<<<<<<<<<<<<<<<<<<<< --}}
+				{{/unless}}
+			{{/each}}
+		</div>
+
+		<div id="pic">
+			<img src="assets/images/badBurger.png" alt="image of burger with cheese at the bottom">
+		</div>
+		
+		<div id="eaten">
+			{{#each burgers}}
+				{{#unless eaten}}
+					{{>}}  {{!-- <<<<<<<<<<<<<<<<<<<<<<<<< --}}
+				{{/unless}}
+			{{/each}}
+		</div>
+		
+	</section>
+
+	<section id="addNew">
+		<input type="text" name="newBurger" class="burgerImput">
+		<br>
+		<button type="submit" id="submitButton">Save Burger</button>
+	</section>
+
+</div>
