@@ -1,21 +1,19 @@
 var express = require("express");
 var burger = require("../models/burger.js");
-var orm = require("../config/orm.js");
+// var orm = require("../config/orm.js");
 
 //create app router
 var router = express.Router();
 
-//create routes and set up logic where required
 //all routes lead to /index
-router.get("/",function(req,res){
+router.get("/",function(req, res){
 	res.redirect("/index")
-})
+});
+
 //get/selec route
-router.get("/index/", function(req, res) { 
-	burger.selectAll( function(err,data) {
-		if(err) {
-			res.send(500)
-		}
+router.get("/index", function(req, res) { 
+	burger.selectAll(function(err,  data) {
+		if (err) throw err;
 		var hbsObject = {
 			burgers: data
 		};
@@ -26,29 +24,31 @@ router.get("/index/", function(req, res) {
 
 //post/insert route
 router.post("/api/addBurger", function(req, res) {
-	console.log(req.body);
-	var burger = {
-		burgerName: req.body.burgerName,
-		timestamp: Date.now()
-	}
-	burger.insertOne(burger.burgerName, burger.timestamp, function(err, data) {
+	// burger.insertOne(burger.burgerName, function(err, data) {
+	// 	burger.selectAll("burgers", function(err, data) {
 
-		orm.selectAll('burger', function(err, data) {
+	// 	});
+	// 	res.render(); <<<<<<<<<<<< also ask about this
+	// });
 
-
-		})
-		res.render()
-	})
-
-	// burger.insertOne([""]) //<<<<<<<<<<<< ????
-	
+	burger.insertOne(burger.burgerName, function(err, data) {
+		res.json({id: data.id}); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	});
 });
 
 //update/put route
-router.put("/api/updateBurger", function(req, res) {
-	// burger.updateOne(//<<<<<< ???)
-});
+router.put("/api/burgers/:id", function(req, res) {
+	var burgerId = "id = " + req.params.id
 
+	burger.update({ eaten: TRUE }, burgerId, function(err, data) {
+		if (err) throw err;
+		if (data.changedRows == 0) {
+			return res.status(404).end();
+		} else {
+			res.status(200).end();
+		}
+	});
+});
 
 //export router
 module.exports = router;
