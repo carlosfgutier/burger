@@ -20,6 +20,7 @@ router.get("/index", function(req, res) {
 		console.log(hbsObject);
 		res.render("index", hbsObject);
 	});
+	console.log("in index");
 });
 
 //post/insert route
@@ -31,9 +32,9 @@ router.post("/api/addBurger", function(req, res) {
 	// 	res.render(); <<<<<<<<<<<< also ask about this
 	// });
 
-	burger.insertOne(burger.burgerName, function(err, data) {
-		res.json({id: data.id}); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	});
+	// burger.insertOne(burger.burgerName, function(err, data) {
+	// 	res.json({id: data.id}); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	// });
 });
 
 //update/put route
