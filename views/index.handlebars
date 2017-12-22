@@ -11,8 +11,7 @@
 
 		<div id="pending">
 			{{#each burgers}}
-				{{#unless eaten}}
-					{{>}}  {{!-- <<<<<<<<<<<<<<<<<<<<<<<<< --}}
+				{{#unless this.eaten}}
 				{{/unless}}
 			{{/each}}
 		</div>
@@ -23,8 +22,7 @@
 		
 		<div id="eaten">
 			{{#each burgers}}
-				{{#unless eaten}}
-					{{>}}  {{!-- <<<<<<<<<<<<<<<<<<<<<<<<< --}}
+				{{#unless this.eaten}}
 				{{/unless}}
 			{{/each}}
 		</div>
