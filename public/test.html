@@ -1,9 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Burgers</title>
-</head>
-<body>
+	<meta charset="UTF-8">
 
-</body>
+		<title>Burger Tracker</title>
+		<link rel="stylesheet" href="assets/css/reset.css" type="text/css" />
+		<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+	</head>
+	<body>
+		<div id="container">
+			
+			<header>
+				<h1>Burger Tracker</h1>
+				<p>To keep track of your burger eating</p>
+			</header>
+
+			<section id="tracker">
+
+				<div id="pending">
+					here
+				</div>
+
+				<div id="pic">
+					<img src="assets/images/badBurger.png" alt="image of burger with cheese at the bottom">
+				</div>
+				
+				<div id="eaten">
+					here
+				</div>
+				
+			</section>
+
+			<section id="addNew">
+				<input type="text" name="newBurger" class="burgerImput">
+				<br>
+				<button type="submit" id="submitButton">Save Burger</button>
+			</section>
+
+
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="assets/js/burgers.js"></script>
+		</div>
+	</body>
 </html>
